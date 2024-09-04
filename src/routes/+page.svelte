@@ -28,7 +28,7 @@
 	.jumbotron {
 		padding: 4rem 2rem;
 		margin-inline: auto;
-		margin-block: 3rem;
+		margin-bottom: 3rem;
 		background-color: var(--color-light);
 		border-radius: 0.5rem;
 		text-align: center;

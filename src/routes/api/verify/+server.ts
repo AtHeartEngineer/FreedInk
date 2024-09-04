@@ -1,6 +1,7 @@
 import type { RequestHandler } from './$types';
 import { SiweMessage } from 'siwe';
 import { createSession } from '$lib/sessionStore';
+import { createUser, getUserByAddress } from '$lib/db/users';
 
 export const POST: RequestHandler = async ({ request, locals, cookies }) => {
 	const { message, signature } = await request.json();
@@ -23,9 +24,24 @@ export const POST: RequestHandler = async ({ request, locals, cookies }) => {
 		const siweData = JSON.stringify(verification.data);
 		const sessionData = { siwe: verification.data };
 		const sessionId = createSession(sessionData);
+		const user = await getUserByAddress(verification.data.address);
+		let new_user;
+		if (!user) {
+			await createUser(verification.data.address);
+			new_user = true;
+		} else {
+			if (user.username && user.username != '' && user.idc && user.idc != '') {
+				new_user = false;
+			} else {
+				new_user = true;
+			}
+		}
+
 		cookies.set('siwe', siweData, { path: '/', httpOnly: true });
 		cookies.set('session_id', sessionId, { path: '/', httpOnly: true });
-		return new Response(JSON.stringify(true), { status: 200 });
+		return new Response(JSON.stringify({ logged_in: true, new_user: new_user }), {
+			status: 200
+		});
 	} catch (e) {
 		cookies.delete('nonce', { path: '/' }); // Clear the nonce cookie
 		console.error(e);

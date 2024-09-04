@@ -1,10 +1,11 @@
-<script typescript>
-	import SIWE from '$lib/siwe.svelte';
+<script lang="ts">
+	import SIWE from '$lib/components/siwe.svelte';
+	export let data;
 </script>
 
 <div class="stack">
 	Sign-in with Ethereum
-	<SIWE />
+	<SIWE address={data.address} />
 </div>
 
 <style>

@@ -32,6 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@semaphore-protocol/core": "^4.0.3",
 		"@supabase/supabase-js": "^2.45.3",
 		"ethers": "^6.13.2",
 		"siwe": "^2.3.2",

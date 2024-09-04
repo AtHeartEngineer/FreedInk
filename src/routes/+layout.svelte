@@ -1,11 +1,13 @@
-<script typescript>
-	import SIWE from '$lib/siwe.svelte';
+<script lang="ts">
+	import SIWE from '$lib/components/siwe.svelte';
+	import { onMount } from 'svelte';
+	export let data: string | null;
 </script>
 
 <header>
 	<nav>
 		<a href="/" class="nav-title">Freed Ink</a>
-		<SIWE />
+		<SIWE address={data.address} />
 	</nav>
 </header>
 <main>
@@ -75,6 +77,7 @@
 		font-weight: 600;
 		margin-right: 1.5rem;
 	}
+
 	nav {
 		background-color: var(--color-primary);
 		color: var(--color-light);
