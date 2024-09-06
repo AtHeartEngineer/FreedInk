@@ -33,8 +33,11 @@
 	"type": "module",
 	"dependencies": {
 		"@semaphore-protocol/core": "^4.0.3",
+		"@semaphore-protocol/group": "^4.0.3",
+		"@semaphore-protocol/proof": "^4.0.3",
 		"@supabase/supabase-js": "^2.45.3",
 		"ethers": "^6.13.2",
+		"poseidon-lite": "^0.3.0",
 		"siwe": "^2.3.2",
 		"uuid": "^10.0.0"
 	}

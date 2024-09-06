@@ -7,7 +7,7 @@ export const POST: RequestHandler = async ({ request, locals, cookies }) => {
 	const { message, signature } = await request.json();
 	const nonce = cookies.get('nonce'); // Retrieve the nonce from the cookie
 
-	console.log('Received Nonce:', nonce);
+	console.log('Received Nonce', nonce);
 
 	if (!message || !nonce) {
 		return new Response(JSON.stringify({ message: 'signed message or nonce missing.' }), {
@@ -17,7 +17,7 @@ export const POST: RequestHandler = async ({ request, locals, cookies }) => {
 
 	try {
 		const siweMessage = new SiweMessage(message);
-		console.log('SiweMessage:', siweMessage);
+		console.log('Sign In With Ethereum Message', siweMessage);
 		const verification = await siweMessage.verify({ signature, nonce });
 
 		// Store SIWE data in a secure, HTTP-only cookie

@@ -11,15 +11,18 @@ export const handle: Handle = async ({ event, resolve }) => {
 		const sessionData = getSession(sessionId);
 		if (sessionData) {
 			event.locals.siwe = sessionData.siwe; // Store session data in locals for use in the app
-			console.log('Session data successfully retrieved and set in locals:', event.locals.siwe);
+			console.debug(
+				'Session data successfully retrieved and set in locals',
+				event.locals.siwe.address
+			);
 		} else {
-			console.log('Session ID found in cookie but no session data found in store.');
+			console.debug('Session ID found in cookie but no session data found in store.', sessionId);
 		}
 	} else {
 		// If no session ID is found, create a new one and set it in the cookies
 		sessionId = uuid();
 		event.cookies.set('session_id', sessionId, { path: '/' });
-		console.log('New session ID created and set in cookie:', sessionId);
+		console.debug('New session ID created and set in cookie:', sessionId);
 	}
 
 	// Proceed with request handling

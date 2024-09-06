@@ -5,7 +5,7 @@ export const load = async ({ locals }) => {
 	const address = siwe_state ? siwe_state.address : null;
 	if (address) {
 		const userExists: boolean = await getUserByAddress(address);
-		console.log('User exists:', userExists);
+		console.log('User Found', userExists.address);
 	}
 	return { address };
 };

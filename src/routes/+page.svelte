@@ -10,7 +10,6 @@
 		This is a blogging platform that is a bit different than others. We aim to construct blogs
 		shaped around like minds who want to speak more freely, but with some weight behind it.
 	</p>
-	<p></p>
 	<a href="/signup" class="btn btn-primary">Free Your Ink</a>
 </div>
 <div class="featured">
@@ -26,10 +25,10 @@
 
 <style>
 	.jumbotron {
-		padding: 4rem 2rem;
+		padding: 4rem;
 		margin-inline: auto;
 		margin-bottom: 3rem;
-		background-color: var(--color-light);
+		background-color: var(--color-green-lightest);
 		border-radius: 0.5rem;
 		text-align: center;
 		max-width: 120ch;
@@ -57,6 +56,12 @@
 		width: 100%;
 		max-width: 120ch;
 	}
+
+	p {
+		padding-inline: 2rem;
+		padding-bottom: 1.5rem;
+	}
+
 	li {
 		margin-bottom: 1rem;
 	}

@@ -81,7 +81,7 @@
 				if (data.new_user) {
 					goto('/signup/profile');
 				} else {
-					window.location.href = '/dashboard';
+					window.location.href = '/admin';
 				}
 			});
 		}
