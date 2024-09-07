@@ -13,10 +13,11 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-node": "^5.2.2",
+		"@sveltejs/adapter-vercel": "^5.4.3",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "^9.6.0",
-		"dotenv": "^16.4.5",
 		"eslint": "^9.0.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
@@ -37,7 +38,6 @@
 		"@semaphore-protocol/proof": "^4.0.3",
 		"@supabase/supabase-js": "^2.45.3",
 		"ethers": "^6.13.2",
-		"poseidon-lite": "^0.3.0",
 		"siwe": "^2.3.2",
 		"uuid": "^10.0.0"
 	}

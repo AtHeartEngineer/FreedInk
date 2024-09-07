@@ -1,5 +1,4 @@
 import { createClient } from '@supabase/supabase-js';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from '$env/static/private';
 
-export const supabase = createClient(process.env.SUPABASE_URL ?? '', process.env.SUPABASE_ANON_KEY ?? '');
+export const supabase = createClient(SUPABASE_URL ?? '', SUPABASE_ANON_KEY ?? '');
