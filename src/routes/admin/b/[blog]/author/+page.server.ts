@@ -2,7 +2,6 @@ import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { isOwner, isReviewer, isAuthor } from '$lib/db/roles';
 import { getBlogBySlug } from '$lib/db/blogs';
-export const ssr = false;
 export const load: PageServerLoad = async ({ locals, params }) => {
 	if (!locals.siwe) {
 		console.error('SIWE data not found in locals:', locals);

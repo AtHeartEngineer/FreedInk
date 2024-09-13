@@ -28,6 +28,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		address,
 		blog_title,
 		blog_id,
+		blog_slug,
 		owners: owners.owners,
 		authors: authors.authors,
 		reviewers: reviewers.reviewers

@@ -1,6 +1,13 @@
 <script lang="ts">
 	export let data;
-	let { blog_title = 'Loading...', authors = [], owners = [], reviewers = [], blog_id } = data;
+	let {
+		blog_title = 'Loading...',
+		authors = [],
+		owners = [],
+		reviewers = [],
+		blog_id,
+		blog_slug
+	} = data;
 
 	async function addUser(event: Event) {
 		event.preventDefault();
@@ -112,7 +119,7 @@
 </script>
 
 <h3>Manage {blog_title}</h3>
-
+<a href="/admin/b/{blog_slug}/author"><button>Make Post</button></a>
 <h4>Owners</h4>
 <p>Owners can add new authors and reviewers, vote to publish drafts, and author draft posts.</p>
 <table>

@@ -18,8 +18,5 @@ export default defineConfig({
 			},
 			protocolImports: true
 		})
-	],
-	ssr: {
-		noExternal: ['@semaphore-protocol/proof', 'snarkjs', 'ffjavascript', 'web-worker']
-	}
+	]
 });

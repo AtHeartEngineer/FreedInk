@@ -46,7 +46,7 @@
 				body: JSON.stringify(update)
 			});
 			const json = await res.json();
-			console.log('json', JSON.parse(json));
+			console.log('json', json);
 		});
 	};
 </script>

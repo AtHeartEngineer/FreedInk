@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { tick } from 'svelte'; // To ensure DOM updates
+	import { Identity } from '@semaphore-protocol/core';
 
 	export let address;
 
@@ -14,6 +15,29 @@
 	let siweBtn;
 
 	if (browser) {
+		async function connectWalletSigner() {
+			if (typeof window.ethereum !== 'undefined') {
+				const provider = new BrowserProvider(window.ethereum);
+				await provider.send('eth_requestAccounts', []);
+				const signer = provider.getSigner();
+				return signer;
+			} else {
+				alert('MetaMask is not installed!');
+				return null;
+			}
+		}
+
+		async function signMessage() {
+			const signer = await connectWalletSigner();
+			if (signer) {
+				const message = `Generate your EdDSA Key Pair at ${window.location.origin}`;
+				const signature = await signer.signMessage(message);
+				const newSemaphoreIdentity = new Identity(signature);
+				localStorage.setItem('semaphoreIdentity', newSemaphoreIdentity.privateKey.toString());
+				console.log('Semaphore Identity Generated', newSemaphoreIdentity);
+				return newSemaphoreIdentity;
+			}
+		}
 		onMount(async () => {
 			function checkAuthentication() {
 				isAuthenticated = address ? true : false;
