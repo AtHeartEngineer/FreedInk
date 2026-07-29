@@ -1,12 +1,12 @@
-import { createMinisterClient, generatePkce, randomUrlToken } from '@minister/client';
-import type { MinisterClient, MinisterClaims, OidcFlowState } from '@minister/client';
+import { createMinisterClient, generatePkce, randomUrlToken } from '@ministryofmany/client';
+import type { MinisterClient, MinisterClaims, OidcFlowState } from '@ministryofmany/client';
 import { decodeJwt } from 'jose';
 import { env } from '$env/dynamic/private';
 
 // "Sign in with Minister" — Minister is an external OpenID Connect identity
 // provider. We are the relying party: authorization-code flow with PKCE
 // (S256). The OIDC mechanics (discovery, PKCE, authorization-URL building,
-// token exchange, id_token verification) are delegated to `@minister/client`;
+// token exchange, id_token verification) are delegated to `@ministryofmany/client`;
 // this module keeps only FreedInk's config and glue. Configuration comes from
 // env (all four required to enable it):
 //   OIDC_MINISTER_ISSUER         e.g. http://localhost:3000

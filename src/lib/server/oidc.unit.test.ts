@@ -4,7 +4,7 @@
 import { describe, it, expect, vi } from 'vitest';
 
 vi.mock('$env/dynamic/private', () => ({ env: {} }));
-vi.mock('@minister/client', () => ({
+vi.mock('@ministryofmany/client', () => ({
 	createMinisterClient: () => ({}),
 	generatePkce: async () => ({ verifier: '', challenge: '' }),
 	randomUrlToken: () => ''
