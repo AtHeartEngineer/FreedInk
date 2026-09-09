@@ -72,7 +72,7 @@
 		"@semaphore-protocol/identity": "^4.0.3",
 		"@semaphore-protocol/proof": "^4.0.3",
 		"@sentry/sveltekit": "^8.45.0",
-		"@tiptap/core": "^3.0.0",
+		"@tiptap/core": "^3.30.5",
 		"@tiptap/extension-image": "^3.0.0",
 		"@tiptap/extension-link": "^3.0.0",
 		"@tiptap/extension-typography": "^3.0.0",
